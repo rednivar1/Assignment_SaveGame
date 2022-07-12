@@ -32,11 +32,9 @@ public class SaveManager : MonoBehaviour
 
 	public void OnClickSaveButton()
 	{
-		Debug.Log("Saving progress...");
-
 		//Return the control if player health is 0 or he already died.
-		if (playerHealth.CurrentHealth <= 0 && !playerHealth.isDead) return;
-
+		if (playerHealth.CurrentHealth <= 0 || playerHealth.isDead) return;
+		
 		//Stop the time and save the game.
 		Time.timeScale = 0;
 		SaveGame();
